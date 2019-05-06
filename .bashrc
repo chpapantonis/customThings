@@ -207,7 +207,7 @@ else
 fi
  
 # This is what actually sets our PS1. The ${git prompt} is what will display our git status.
-PS1="\e[0;36m\]\[\e[1;36m\]\u\]\]:\[\e[0;93m\]\w${git_prompt}\n👉$txtrst "
+PS1="\e[0;36m\]\[\e[1;36m\]\u\]\]:\[\e[0;93m\]\w${git_prompt}\n👉\[\033[00m\] "
 #PS1="$txtyel[$txtcyn\u$txtyel@$txtcyn\h$txtyel]:$txtpur(\w)${git_prompt}\n$txtgrn#> $txtrst"
  
 }
