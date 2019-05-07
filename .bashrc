@@ -221,6 +221,7 @@ function gi() {
 
    
 export DISPLAY=localhost:0
+export LANG="en_GB.UTF-8"
 #export LM_LICENSE_FILE="/opt/synopsys/.synopsys/synopsys.dat"
 #PATH=$PATH:/opt/synopsys/H-2013.03-SP5/bin/
 #PATH=$PATH:/opt/synopsys/flow/
