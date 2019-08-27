@@ -112,3 +112,25 @@ alias gogit="cd Code/Git"
 alias ..="cd .."
 alias ..2="cd ../../"
 alias ..3="cd ../../../"
+
+function pullRequest() {
+	echo "i am in"
+	echo $1
+	if [ $1 != ""  ]; then 
+		echo "git checkout -b $1 --track/origin/$1"
+	fi
+}
+
+function check_pr() {
+  if [ -z "$1" ]
+  then
+    echo "vale branch name re kerata"
+    return 1
+  fi
+  
+  echo 'Your input: ' $1
+  git remote update --prune
+  git branch -d $1
+  git checkout -b $1 --track origin/$1
+  git reset develop
+}
