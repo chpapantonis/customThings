@@ -134,3 +134,18 @@ function check_pr() {
   git checkout -b $1 --track origin/$1
   git reset develop
 }
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$HOME/.rbenv/bin:$PATH"
+# NPM global installs
+export PATH=$PATH:~/.npm-global/bin§
+export PATH="/usr/local/sbin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+
+export YVM_DIR=/Users/ipap/.yvm
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
