@@ -75,6 +75,8 @@ plugins=(git
 	osx
 	pod
 	themes
+	zsh-autosuggestions
+	zsh-completions
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -106,12 +108,15 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias gogit="cd Code/Git"
+#
+alias zshconfig="gvim ~/Code/Git/customThings/.zshrc"
+alias ohmyzsh="gvim ~/.oh-my-zsh"
+alias gogit="cd ~/Code/Git"
 alias ..="cd .."
 alias ..2="cd ../../"
 alias ..3="cd ../../../"
+alias grep="grep --color --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
+
 
 function pullRequest() {
 	echo "i am in"
