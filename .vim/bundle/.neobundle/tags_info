@@ -1,0 +1,5 @@
+neobundle.vim
+vim-airline
+vim-airline-themes
+vim-gitgutter
+vim-swift

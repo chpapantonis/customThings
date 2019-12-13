@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/spyrospath'
+let g:netrw_dirhist_2='/Users/spyrospath/dev/projects/skroutz-ios/fastlane'
+let g:netrw_dirhist_3='/Users/spyrospath/dev/projects/leaf-ios/fastlane'
+let g:netrw_dirhist_4='/Users/spyrospath/dev/projects/skroutzkit-swift/SkroutzKit'
