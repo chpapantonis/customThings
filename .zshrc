@@ -116,6 +116,22 @@ alias ..="cd .."
 alias ..2="cd ../../"
 alias ..3="cd ../../../"
 alias grep="grep --color --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
+alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
+alias reload='source ~/.zshrc'
+alias config='gvim ~/.zshrc'
+
+function acp() {
+  git add .
+  git commit -m "$1"
+  git push
+}
+
+function fixup() {
+  git add .
+  git commit --fixup HEAD
+  git rebase -i HEAD~2
+  git push -f
+}
 
 
 function pullRequest() {
@@ -154,3 +170,8 @@ export NVM_DIR="$HOME/.nvm"
 
 export YVM_DIR=/Users/ipap/.yvm
 [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent -s`
+    ssh-add -K
+fi
