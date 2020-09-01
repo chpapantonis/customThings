@@ -119,6 +119,7 @@ alias grep="grep --color --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 alias reload='source ~/.zshrc'
 alias config='gvim ~/.zshrc'
+alias token='~/Code/stagingToken.sh'
 
 function acp() {
   git add .
@@ -126,10 +127,10 @@ function acp() {
   git push
 }
 
-function fixup() {
+function fxp() {
   git add .
   git commit --fixup HEAD
-  git rebase -i HEAD~2
+  git rebase -i --autosquash HEAD~2
   git push -f
 }
 
@@ -162,6 +163,10 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 # NPM global installs
 export PATH=$PATH:~/.npm-global/bin§
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -175,3 +180,4 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
     ssh-add -K
 fi
+export PATH=/usr/local/bin:$HOME/bin:$PATH
