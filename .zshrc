@@ -120,6 +120,8 @@ alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 alias reload='source ~/.zshrc'
 alias config='gvim ~/.zshrc'
 alias token='~/Code/stagingToken.sh'
+alias rbc='git add .; git rebase --continue'
+alias mergetool='git mergetool'
 
 function acp() {
   git add .
@@ -157,27 +159,23 @@ function check_pr() {
   git reset develop
 }
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$HOME/.rbenv/bin:$PATH"
+
+
 # NPM global installs
 export PATH=$PATH:~/.npm-global/bin§
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-
-export YVM_DIR=/Users/ipap/.yvm
-[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
     ssh-add -K
 fi
 export PATH=/usr/local/bin:$HOME/bin:$PATH
+function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
