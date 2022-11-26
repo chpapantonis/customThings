@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +15,8 @@ export ZSH="/Users/ipap/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="spaceship"
+# ZSH_THEME="spaceship"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 SPACESHIP_USER_SHOW="always"
 
@@ -72,7 +80,7 @@ SPACESHIP_USER_SHOW="always"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
 	z
-	osx
+	macos
 	pod
 	themes
 	zsh-autosuggestions
@@ -109,8 +117,8 @@ fi
 #
 # Example aliases
 #
-alias zshconfig="gvim ~/Code/Git/customThings/.zshrc"
-alias ohmyzsh="gvim ~/.oh-my-zsh"
+alias zshconfig="macvim ~/Code/Git/customThings/.zshrc"
+alias ohmyzsh="macvim ~/.oh-my-zsh"
 alias gogit="cd ~/Code/Git"
 alias ..="cd .."
 alias ..2="cd ../../"
@@ -122,6 +130,7 @@ alias config='gvim ~/.zshrc'
 alias token='~/Code/stagingToken.sh'
 alias rbc='git add .; git rebase --continue'
 alias mergetool='git mergetool'
+alias cleand='rm -rf /Users/ipap/Library/Developer/Xcode/DerivedData'
 
 function acp() {
   git add .
@@ -162,12 +171,7 @@ function check_pr() {
 
 
 # NPM global installs
-export PATH=$PATH:~/.npm-global/bin§
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -177,5 +181,14 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
     ssh-add -K
 fi
+
 export PATH=/usr/local/bin:$HOME/bin:$PATH
 function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
+export PATH=/opt/homebrew/bin:/usr/local/bin:/Users/ipap/bin:/usr/local/opt/ruby/bin:/usr/local/opt/python@3.8/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.1.0
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"

@@ -8,8 +8,8 @@
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [user]
-	name = Christos Papantonis 
-	email = x.papantonis@gmail.com
+	name = Christos Papantonis
+	email = christos.papantonis@skroutz.gr
 [commit]
 	template = /Users/ipap/.stCommitMsg
 [merge]
@@ -39,3 +39,7 @@
 	path = /Users/ipap/.gitalias.txt
 [pull]
 	rebase = true
+[alias]
+	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
+[push]
+	default = current
